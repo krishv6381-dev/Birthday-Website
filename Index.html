@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+background:linear-gradient(-45deg,#ff6b6b,#ff9a8b,#c471ed,#f64f59);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+color:white;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+overflow:auto;
+}
+
+.page.active{
+display:flex;
+}
+
+h1{
+font-size:4rem;
+text-align:center;
+text-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.subtitle{
+margin-top:15px;
+font-size:1.2rem;
+text-align:center;
+max-width:700px;
+}
+
+.buttons{
+margin-top:35px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+button{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+font-size:1rem;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+background:white;
+color:#ff4d6d;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+button:hover{
+transform:translateY(-4px) scale(1.05);
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+width:95%;
+max-width:1200px;
+margin-top:40px;
+padding-bottom:40px;
+}
+
+.card{
+height:280px;
+border-radius:25px;
+overflow:hidden;
+position:relative;
+background:white;
+animation:float 4s ease-in-out infinite;
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:-150%;
+left:-150%;
+width:300%;
+height:300%;
+background:linear-gradient(
+45deg,
+transparent,
+rgba(255,255,255,.8),
+transparent
+);
+}
+
+.card:hover::before{
+animation:shine 1.2s linear;
+}
+
+@keyframes shine{
+from{
+transform:translateX(-300px) rotate(25deg);
+}
+to{
+transform:translateX(700px) rotate(25deg);
+}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+.message-card{
+max-width:850px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:30px;
+text-align:center;
+line-height:2;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.message-card h2{
+font-size:2.2rem;
+margin-bottom:20px;
+}
+
+.back{
+margin-top:30px;
+}
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+top:-20px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+
+.balloon{
+position:absolute;
+width:50px;
+height:65px;
+border-radius:50%;
+bottom:-100px;
+animation:fly linear forwards;
+}
+
+.balloon::after{
+content:"";
+position:absolute;
+width:2px;
+height:60px;
+background:white;
+left:50%;
+top:65px;
+}
+
+@keyframes fly{
+to{
+transform:translateY(-130vh);
+}
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:heartFloat 8s linear infinite;
+opacity:.6;
+}
+
+@keyframes heartFloat{
+from{
+transform:translateY(100vh);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+
+<section class="page active" id="home">
+
+<h1>🎂 Happy Birthday 🎂</h1>
+
+<p class="subtitle">
+✨ Wishing you many more happy returns of the day! 💖
+May your life be filled with laughter, success,
+happiness and endless beautiful memories. 🎉🎈
+</p>
+
+<div class="buttons">
+
+<button onclick="celebrate()">
+🎉 Pop Celebration
+</button>
+
+<button onclick="showPage('galleryPage')">
+🖼 Gallery
+</button>
+
+<button onclick="showPage('messagePage')">
+💌 My Special Message
+</button>
+
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="page" id="galleryPage">
+
+<h1>✨ Beautiful Memories ✨</h1>
+
+<div class="gallery">
+
+<div class="card">
+<img src="https://ibb.co/p6LJqHKs">
+</div>
+
+<div class="card">
+<img src="C:\Users\Divyalakshmi\Downloads\Krish\dd.png">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=1000">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1000">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1000">
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?w=1000">
+</div>
+
+</div>
+
+<button class="back" onclick="showPage('home')">
+⬅ Back
+</button>
+
+</section>
+
+<!-- MESSAGE -->
+
+<section class="page" id="messagePage">
+
+<div class="message-card">
+
+<h2>💖 For Someone Very Special 💖</h2>
+
+<p id="typed"></p>
+
+<button class="back" onclick="showPage('home')">
+⬅ Back
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+function showPage(id){
+
+document.querySelectorAll('.page')
+.forEach(page=>page.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+
+if(id==="messagePage"){
+startTyping();
+}
+}
+
+function celebrate(){
+
+for(let i=0;i<180;i++){
+
+let confetti=document.createElement("div");
+confetti.classList.add("confetti");
+
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.background=
+`hsl(${Math.random()*360},100%,50%)`;
+
+confetti.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(confetti);
+
+setTimeout(()=>confetti.remove(),6000);
+}
+
+for(let i=0;i<25;i++){
+
+let balloon=document.createElement("div");
+
+balloon.classList.add("balloon");
+
+balloon.style.left=Math.random()*100+"vw";
+
+balloon.style.background=
+`hsl(${Math.random()*360},90%,70%)`;
+
+balloon.style.animationDuration=
+(Math.random()*5+6)+"s";
+
+document.body.appendChild(balloon);
+
+setTimeout(()=>balloon.remove(),12000);
+}
+}
+
+const msg=`Happy Birthday, Sunshine! 🌸✨
+
+Today is all about celebrating the beautiful soul
+that fills every moment with happiness and warmth.
+
+May your smile shine brighter than ever,
+your dreams grow bigger than ever,
+and your heart stay as wonderful as it is today. 💕
+
+Thank you for being such an amazing person.
+
+May this year bring you joy,
+success, adventures,
+sweet surprises and unforgettable memories. 🎂🎉
+
+Keep smiling.
+Keep shining.
+Keep being you. ❤️`;
+
+let typedDone=false;
+
+function startTyping(){
+
+if(typedDone) return;
+
+typedDone=true;
+
+let i=0;
+
+function type(){
+
+if(i<msg.length){
+
+document.getElementById("typed").innerHTML+=msg.charAt(i);
+
+i++;
+
+setTimeout(type,30);
+}
+}
+
+type();
+}
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="💖";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*5+5)+"s";
+
+heart.style.fontSize=
+(Math.random()*20+20)+"px";
+
+document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
